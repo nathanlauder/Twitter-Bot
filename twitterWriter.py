@@ -6,6 +6,7 @@ from selenium import webdriver
 from time import sleep
 
 class twitterPost:
+    # initialize the user profile and login to the account
     def __init__(self, username, password):
         self.driver = webdriver.Chrome(executable_path='/Users/nathanlauder/Desktop/chromedriver')
         site = self.driver.get("https://twitter.com/login")
@@ -17,12 +18,18 @@ class twitterPost:
         # click the login button
         self.driver.find_element_by_xpath('//div[@class="css-901oao r-1awozwy r-jwli3a r-6koalj r-18u37iz r-16y2uox r-1qd0xha r-a023e6 r-vw2c0b r-1777fci r-eljoum r-dnmrzs r-bcqeeo r-q4m81j r-qvutc0"]').click()
         sleep(3)
+    # type a tweet and post it
     def tweet(self, tweet):
-        # type the tweet then hit the tweet button
         self.driver.find_element_by_xpath('//div[@class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"]').send_keys(tweet)
         sleep(3)
-        self.driver.find_element_by_xpath('//div[@class="css-18t94o4 css-1dbjc4n r-urgr8i r-42olwf r-sdzlij r-1phboty r-rs99b7 r-1w2pmg r-1n0xq6e r-1vuscfd r-1dhvaqw r-1fneopy r-o7ynqc r-6416eg r-lrvibr"]').click()
-
-user = twitterPost("USERNAME", "PASSWORD")
+        self.driver.find_element_by_xpath('//a[@role=""]').click()
+    # log the user out of the account
+    def logout(self):
+        self.driver.find_element_by_xpath('//div[@class="css-1dbjc4n r-1twgtwe r-sdzlij r-rs99b7 r-1p0dtai r-1mi75qu r-1d2f490 r-u8s1d r-zchlnj r-ipm5af"]').click()
+        sleep(2)
+        self.driver.find_element_by_xpath('//*[@id="react-root"]/div/div/div[1]/div[2]/div[2]/div/div[2]/div/div/div/div/div/a[2]/div/div').click()
+        sleep(2)
+        self.driver.find_element_by_xpath('//*[@id="react-root"]/div/div/div[1]/div[2]/div/div/div/div[2]/div[2]/div[3]/div[2]/div').click()
+# user = twitterPost("USERNAME", "PASSWORD")
 user.tweet("checking bot")
-
+user.logout()
