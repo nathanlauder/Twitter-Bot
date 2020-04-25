@@ -1,2 +1,2 @@
 # Twitter-Bot
- automation using selenium to make a twitter post with python
+ Wrote this program to automate Twitter functions with Python. 
