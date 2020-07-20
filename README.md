@@ -1,2 +1,2 @@
 # Twitter-Bot
- Wrote this program to automate Twitter functions with Python. 
+ I wrote this script to teach myself some selenium.  I wanted to learn how to automate something, so this is what I chose!
